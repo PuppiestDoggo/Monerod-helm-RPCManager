@@ -1,15 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "monerod-RPCManager.fullname" . }}
-  labels:
-    {{- include "monerod-RPCManager.labels" . | nindent 4 }}
+  name: monero-rpcmanager
 spec:
-  type: {{ .Values.service.type }}
-  ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
   selector:
-    {{- include "monerod-RPCManager.selectorLabels" . | nindent 4 }}
+    app: monero-rpcmanager
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
