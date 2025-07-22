@@ -1,5 +1,5 @@
 image:
-  repository: blackmine57/monerod
+  repository: blackmine57/pupero-helm-rpcmanager
   tag: latest
   pullPolicy: Always
 
