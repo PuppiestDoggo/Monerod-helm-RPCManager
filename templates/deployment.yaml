@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: monero-rpcmanager
+  name: monero-wallet-rpcmanager
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: monero-RPCManager
+      app: monero-wallet-rpcmanager
   template:
     metadata:
       labels:
-        app: monero-RPCManager
+        app: monero-wallet-rpcmanager
     spec:
       containers:
-        - name: monero-rpcmanager
+        - name: monero-wallet-rpcmanager
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 8080
