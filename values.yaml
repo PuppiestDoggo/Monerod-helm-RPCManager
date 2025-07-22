@@ -4,8 +4,3 @@ image:
   pullPolicy: Always
 
 replicaCount: 3
-
-command:
-  - "sleep"
-args:
-  - "30"

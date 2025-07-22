@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: monero-helm-RPCManager
+  name: monero-rpcmanager
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: monero-helm-RPCManager
+      app: monero-RPCManager
   template:
     metadata:
       labels:
-        app: monero-helm-RPCManager
+        app: monero-RPCManager
     spec:
       containers:
-        - name: monero-helm-RPCManager
+        - name: monero-rpcmanager
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          command: {{ toJson .Values.command }}
-          args: {{ toJson .Values.args }}
           ports:
             - containerPort: 8080
